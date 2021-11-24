@@ -9,7 +9,7 @@ import java.util.Date;
 @RequestMapping("/recommendations")
 
 public class RecommendationController {
-   private  RecommendationRepository recommendationRepository;
+   private final RecommendationRepository recommendationRepository;
 
     public RecommendationController(RecommendationRepository recommendationRepository) {
         this.recommendationRepository = recommendationRepository;
@@ -43,6 +43,6 @@ public class RecommendationController {
     @DeleteMapping("/{id}")
     void deleteRecommendation(@PathVariable  Integer id){
         Recommendation recommendation = new Recommendation(id);
-        recommendationRepository.delete(recommendation );
+        recommendationRepository.delete(recommendation);
     }
 }
