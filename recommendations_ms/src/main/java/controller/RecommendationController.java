@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Date;
 
 @RestController
+@RequestMapping("/recommendations")
 
 public class RecommendationController {
    private  RecommendationRepository recommendationRepository;
@@ -14,7 +15,7 @@ public class RecommendationController {
         this.recommendationRepository = recommendationRepository;
     }
 
-    @GetMapping("/recommendations/{id}")
+    @GetMapping()
     List<Recommendation> getRecommendations(){
         return recommendationRepository.findAll();
     }
@@ -25,14 +26,13 @@ public class RecommendationController {
         return recommendationRepository.findByTitleLike(title);
     }
 
-    @PostMapping("/recommendations/{id}")
+    @PostMapping()
     Recommendation  createRecommendation(@RequestBody Recommendation recommendation){
         Recommendation.setReleaseDate(new Date());
         return recommendationRepository.save(recommendation);
 
-
     }
-    @PutMapping("/recommendations/{id}")
+    @PutMapping("/{id}")
 
     Recommendation updateRecommendation (@PathVariable Integer id, @RequestBody Recommendation recommendation ){
         Recommendation.setId(id);
@@ -40,7 +40,7 @@ public class RecommendationController {
 
     }
 
-    @DeleteMapping("/recommendations/{id}")
+    @DeleteMapping("/{id}")
     void deleteRecommendation(@PathVariable  Integer id){
         Recommendation recommendation = new Recommendation(id);
         recommendationRepository.delete(recommendation );
