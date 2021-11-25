@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Recommendation {
     @Id
-    private Integer id;
+    private String id;
     private String username;
     private String title;
     private String content;
@@ -13,7 +13,7 @@ public class Recommendation {
     private Date releaseDate;
 
     
-    public Recommendation(Integer id,String username,String title,String  content, String category, Date releaseDate){
+    public Recommendation(String id,String username,String title,String  content, String category, Date releaseDate){
         this.id = id;
         this.username = username;
         this.title = title;
@@ -21,20 +21,25 @@ public class Recommendation {
         this.category = category;
         this.releaseDate = releaseDate;
     }
-    public Recommendation(Integer id){
+    public Recommendation(String id){
         this.id = id;
     }
-    public Integer getId(){
+    public Recommendation(){
+        
+    }
+
+    public String getId(){
         return id;
     }
-    public static void setId(Integer id){
-
+    public void setId(String id){
+        this.id = id;
     }
     public String getUsername() {
         return username;
     }
 
-    public static void setUsername (String username) {
+    public  void setUsername (String username) {
+        this.username = username;
     }
 
     public String getTitle() {
@@ -66,8 +71,8 @@ public class Recommendation {
         return releaseDate;
     }
 
-    public static void setReleaseDate(Date releaseDate) {
-
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate =releaseDate;
     }
 
 }

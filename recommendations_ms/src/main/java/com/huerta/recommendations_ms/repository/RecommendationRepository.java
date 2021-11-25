@@ -5,6 +5,7 @@ import java.util.*;
 
 public interface RecommendationRepository extends MongoRepository <Recommendation, String> {
     List<Recommendation> findByTitleLike(String title);
+    Recommendation findByid(String id);
 }
 
 
