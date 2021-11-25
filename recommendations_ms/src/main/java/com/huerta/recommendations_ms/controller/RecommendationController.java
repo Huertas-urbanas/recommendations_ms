@@ -31,7 +31,11 @@ public class RecommendationController {
     // find by id of recommendation
     @GetMapping("/{id}")
     Recommendation getRecommendationById(@PathVariable String id){
-        return recommendationRepository.findByid(id);
+        Recommendation idRecommendation= recommendationRepository.findById(id).orElse(null);
+        if (idRecommendation == null)
+            throw new RecommendationNotFoundException("No se encontro una recomendación con el id: "+id);
+
+        return idRecommendation;
     }
 
     @PostMapping()
@@ -42,9 +46,9 @@ public class RecommendationController {
     }
     @PutMapping("/{id}")
 
-    Recommendation updateRecommendation (@PathVariable String id, @RequestBody Recommendation recommendation ){
+    Recommendation updateRecommendation (@PathVariable String id, @RequestBody Recommendation recommendation){
         recommendation.setId(id);
-        return recommendationRepository.save(recommendation );
+        return recommendationRepository.save(recommendation);
 
     }
 
