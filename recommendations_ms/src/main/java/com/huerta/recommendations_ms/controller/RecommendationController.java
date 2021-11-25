@@ -31,7 +31,7 @@ public class RecommendationController {
     // find by id of recommendation
     @GetMapping("/{id}")
     Recommendation getRecommendationById(@PathVariable String id){
-        Recommendation idRecommendation= recommendationRepository.findById(id).orElse(null);
+        Recommendation idRecommendation = recommendationRepository.findById(id).orElse(null);
         if (idRecommendation == null)
             throw new RecommendationNotFoundException("No se encontro una recomendación con el id: "+id);
 
