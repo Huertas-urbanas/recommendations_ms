@@ -24,6 +24,7 @@ public class RecommendationController {
     @GetMapping("/{title}")
     List<Recommendation> getRecommendationbyTitle(@PathVariable String title){
         return recommendationRepository.findByTitleLike(title);
+
     }
 
     @PostMapping()
