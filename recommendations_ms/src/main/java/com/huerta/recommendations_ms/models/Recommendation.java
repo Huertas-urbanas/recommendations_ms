@@ -45,7 +45,7 @@ public class Recommendation {
         this.title = title;
     }
 
-    //revisar si es string o no
+
     public String getContent() {
         return content;
     }

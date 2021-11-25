@@ -1,7 +1,7 @@
-package controller;
+package com.huerta.recommendations_ms.controller;
 import org.springframework.web.bind.annotation.*;
 import com.huerta.recommendations_ms.models.Recommendation;
-import repository.RecommendationRepository;
+import com.huerta.recommendations_ms.repository.RecommendationRepository;
 import java.util.List;
 import java.util.Date;
 

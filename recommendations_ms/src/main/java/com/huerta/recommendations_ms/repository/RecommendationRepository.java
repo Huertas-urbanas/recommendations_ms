@@ -1,4 +1,4 @@
-package repository;
+package com.huerta.recommendations_ms.repository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import com.huerta.recommendations_ms.models.Recommendation;
 import java.util.*;
