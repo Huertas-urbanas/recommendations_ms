@@ -1,10 +1,12 @@
 package com.huerta.recommendations_ms.repository;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import com.huerta.recommendations_ms.models.Recommendation;
 import java.util.*;
 
 public interface RecommendationRepository extends MongoRepository <Recommendation, String> {
     List<Recommendation> findByTitleLike(String title);
+    Recommendation findById(ObjectId id );
 
 }
 

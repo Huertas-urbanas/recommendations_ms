@@ -1,4 +1,5 @@
 package com.huerta.recommendations_ms.controller;
+import org.bson.types.ObjectId;
 import org.springframework.web.bind.annotation.*;
 import com.huerta.recommendations_ms.models.Recommendation;
 import com.huerta.recommendations_ms.repository.RecommendationRepository;
@@ -22,16 +23,17 @@ public class RecommendationController {
     }
 
     // Find by title
-    @GetMapping("/{title}")
+    @GetMapping("/findByTitle/{title}")
     List<Recommendation> getRecommendationbyTitle(@PathVariable String title){
         return recommendationRepository.findByTitleLike(title);
 
     }
 
     // find by id of recommendation
-    @GetMapping("/{id}")
+    @GetMapping("/findById/{id}")
     Recommendation getRecommendationById(@PathVariable String id){
         Recommendation idRecommendation = recommendationRepository.findById(id).orElse(null);
+
         if (idRecommendation == null)
             throw new RecommendationNotFoundException("No se encontro una recomendación con el id: "+id);
 
